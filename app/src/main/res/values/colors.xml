@@ -3,4 +3,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#000000</color>
+    <color name="selectedBar">#000000</color>
+    <color name="menuItemColor">#FF3D00</color>
+    <color name="menuItemsColor">#616161</color>
 </resources>

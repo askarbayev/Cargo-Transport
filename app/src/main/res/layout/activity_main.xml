@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/individual"
+        android:id="@+id/truck_owner"
         android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,7 +21,7 @@
         tools:layout_editor_absoluteY="143dp" />
 
     <Button
-        android:id="@+id/truck_owner"
+        android:id="@+id/individual"
         android:layout_width="254dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -30,7 +30,7 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
-        android:text="invividual"
+        android:text="individual"
         tools:layout_editor_absoluteX="62dp"
         tools:layout_editor_absoluteY="215dp" />
 

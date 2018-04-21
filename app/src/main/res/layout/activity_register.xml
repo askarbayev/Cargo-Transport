@@ -25,7 +25,8 @@
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="First Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -50,7 +51,8 @@
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Last Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -75,7 +77,8 @@
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="E-mail"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -100,7 +103,8 @@
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Phone"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -125,7 +129,8 @@
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Create Username"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -150,7 +155,8 @@
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -175,7 +181,8 @@
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Repeat Password"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -184,11 +191,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="151dp"
+        android:layout_marginBottom="122dp"
         android:background="@color/colorAccent"
-        android:textStyle="bold"
+        android:text="Register"
         android:textColor="@color/colorPrimary"
-        android:text="Register" />
+        android:textStyle="bold" />
 
 
 </android.widget.RelativeLayout>

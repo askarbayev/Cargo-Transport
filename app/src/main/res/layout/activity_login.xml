@@ -22,9 +22,10 @@
             android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
             android:background="@drawable/backwithborder"
-            android:ems="10"
+            android:ems="8"
             android:hint="Username"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -47,9 +48,10 @@
             android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
             android:background="@drawable/backwithborder"
-            android:ems="10"
+            android:ems="8"
             android:hint="Password"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
