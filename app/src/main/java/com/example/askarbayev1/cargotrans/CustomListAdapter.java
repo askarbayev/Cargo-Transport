@@ -34,12 +34,12 @@ public class CustomListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return info.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return info.get(keys[position]);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class CustomListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup parent) {
-        view = inflater.inflate(R.layout.contact_list_item, parent, false);
+        //view = inflater.inflate(R.layout.contact_list_item, parent, false);
         if (view == null) {
             if(isListView)
                 view = inflater.inflate(R.layout.contact_list_item, parent, false);
