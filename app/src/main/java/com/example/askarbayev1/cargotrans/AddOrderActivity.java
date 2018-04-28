@@ -259,6 +259,8 @@ public class AddOrderActivity extends AppCompatActivity implements OnMapReadyCal
             if (res){
                 Toast.makeText(getApplicationContext(), "your order has been succesfully added", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), OrdersActivity.class);
+                intent.putExtra("user_id", user_id);
+                intent.putExtra("status", status);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 

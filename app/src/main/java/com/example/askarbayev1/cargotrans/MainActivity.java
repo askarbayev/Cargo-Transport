@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    Intent intent =new Intent(getApplicationContext(), CentralActivity.class);
+                    Intent intent =new Intent(getApplicationContext(), AvailableRequestActivity.class);
                     intent.putExtra("status", 1);
                     intent.putExtra("user_id", user_id);
                     startActivity(intent);
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    Intent intent =new Intent(getApplicationContext(), CentralActivity.class);
+                    Intent intent =new Intent(getApplicationContext(), AvailableOrders.class);
                     intent.putExtra("status", 2);
                     intent.putExtra("user_id", user_id);
                     startActivity(intent);

@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                     int user_id = db.signIn(fusername, fpassword, status);
                     Log.d("USER_ID: ", user_id+"");
                     if (user_id != -1){
-                        Intent intent = new Intent(getApplicationContext(), CentralActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), AvailableRequestActivity.class);
                         intent.putExtra("status", status);
                         intent.putExtra("user_id", user_id);
                         startActivity(intent);

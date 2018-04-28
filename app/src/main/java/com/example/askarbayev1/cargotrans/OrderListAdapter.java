@@ -9,11 +9,12 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class OrderListAdapter extends BaseAdapter {
-
+    Database db;
     List<Order> orders;
     private Context context;
     private LayoutInflater inflater;
@@ -45,6 +46,7 @@ public class OrderListAdapter extends BaseAdapter {
         if (view == null) {
             view = inflater.inflate(R.layout.orders_list_item, parent, false);
         }
+        db = new Database(context);
         TextView title = view.findViewById(R.id.title);
         TextView height = view.findViewById(R.id.height);
         TextView width = view.findViewById(R.id.width);
@@ -54,6 +56,7 @@ public class OrderListAdapter extends BaseAdapter {
         TextView drop_date = view.findViewById(R.id.drop_date);
         TextView from_location = view.findViewById(R.id.from_location);
         TextView to_destination = view.findViewById(R.id.to_destination);
+        TextView username = view.findViewById(R.id.username);
 
         Order order = (Order) this.getItem(position);
         title.setText(order.getDescription());
@@ -97,6 +100,24 @@ public class OrderListAdapter extends BaseAdapter {
         }
         from_location.setText(builder_location.toString());
         to_destination.setText(builder_destination.toString());
+
+        HashMap<String, String> userInfo = (HashMap<String, String>) db.getUserInfo(order.getUser_id(), order.getStatus());
+        Log.d("userInfo", userInfo+"");
+        String username_val = null;
+        int i = 1;
+        for ( Map.Entry<String, String> entry : userInfo.entrySet()) {
+            String key = entry.getKey();
+            Log.d("key", key);
+            Log.d("value", entry.getValue());
+            if (i == 4){
+                username_val = entry.getValue();
+            }
+            i++;
+
+
+        }
+        username.setText(username_val);
+
 
 
         return view;

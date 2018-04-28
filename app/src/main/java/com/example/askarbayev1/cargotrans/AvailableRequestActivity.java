@@ -4,20 +4,38 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class AvailableRequestActivity extends AppCompatActivity {
+
+    Database db;
+    OrderListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_available_request);
         Intent intent = getIntent();
         int status = intent.getIntExtra("status", -1);
         int user_id = intent.getIntExtra("user_id", -1);
         main(user_id, status);
+        getView();
+    }
+    public void getView() {
+        db = new Database(getApplicationContext());
+        ListView orderListView = findViewById(R.id.orderListView);
+        List<Order> orderList = db.getAllOrders();
+        adapter = new OrderListAdapter(getApplicationContext(),orderList);
+        orderListView.setAdapter(adapter);
+
     }
     private void main(final int user_id, final int status) {
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
@@ -58,4 +76,6 @@ public class AvailableRequestActivity extends AppCompatActivity {
         //intent1.putExtra("status", status);
 
     }
+
+
 }

@@ -32,6 +32,8 @@ public class ContactInfoActivity extends AppCompatActivity {
 
     private void loadContactList(int user_id, int status) {
         ListView listView = (ListView) findViewById(R.id.contactlist);
+        Log.d("status", status+"");
+        Log.d("user_id", user_id+"");
         Map<String, String> info = db.getUserInfo(user_id, status);
         Log.d("HashMap", info+"");
         contactList = new LinkedList<>();
@@ -57,16 +59,27 @@ public class ContactInfoActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 break;
                             case R.id.action_item2:
-                                Intent intent1 = new Intent(getApplicationContext(), AvailableRequestActivity.class);
-                                intent1.putExtra("user_id", user_id);
-                                intent1.putExtra("status", status);
-                                startActivity(intent1);
+                                if (status==1){
+                                    Intent intent1 = new Intent(getApplicationContext(), AvailableRequestActivity.class);
+                                    intent1.putExtra("user_id", user_id);
+                                    intent1.putExtra("status", status);
+                                    startActivity(intent1);
+                                }
+                                else {
+                                    Intent intent1 = new Intent(getApplicationContext(), AvailableOrders.class);
+                                    intent1.putExtra("user_id", user_id);
+                                    intent1.putExtra("status", status);
+                                    startActivity(intent1);
+                                }
+
                                 break;
                             case R.id.action_item3:
-                                Intent intent2 = new Intent(getApplicationContext(), OrdersActivity.class);
-                                intent2.putExtra("user_id", user_id);
-                                intent2.putExtra("status", status);
-                                startActivity(intent2);
+                                if (status!=2){
+                                    Intent intent2 = new Intent(getApplicationContext(), OrdersActivity.class);
+                                    intent2.putExtra("user_id", user_id);
+                                    intent2.putExtra("status", status);
+                                    startActivity(intent2);
+                                }
                                 break;
                         }
                         return true;

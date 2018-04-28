@@ -19,7 +19,7 @@ public class Database extends SQLiteOpenHelper {
 
 
     public Database(Context context) {
-        super(context, DATABASE_NAME, null, 7);
+        super(context, DATABASE_NAME, null, 8);
     }
 
 
@@ -39,6 +39,17 @@ public class Database extends SQLiteOpenHelper {
                         "loc_longitude TEXT, dest_latitude TEXT, dest_longitude, DATETIME DEFAULT CURRENT_TIMESTAMP, " +
                         "FOREIGN KEY(user_id) REFERENCES user(id))"
         );
+        db.execSQL(
+                "create table trade_orders " +
+                        "(id INTEGER primary key," +
+                        "order_id INTEGER," +
+                        "truck_user_id INTEGER," +
+                        "indv_user_id INTEGER," +
+                        "DATETIME DEFAULT CURRENT_TIMESTAMP," +
+                        "FOREIGN KEY(order_id) REFERENCES orders(id)," +
+                        "FOREIGN KEY(truck_user_id) REFERENCES user(id)," +
+                        "FOREIGN KEY(indv_user_id) REFERENCES user(id))"
+        );
 
     }
 
@@ -46,6 +57,7 @@ public class Database extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS user");
         db.execSQL("DROP TABLE IF EXISTS orders");
+        db.execSQL("DROP TABLE IF EXISTS trade_orders");
         onCreate(db);
     }
     public boolean insertOrder(int user_id, int status, String location, String destination, String description,
@@ -71,6 +83,15 @@ public class Database extends SQLiteOpenHelper {
         contentValues.put("dest_latitude", dest_latitude);
         contentValues.put("dest_longitude", dest_longitude);
         db.insert("orders", null, contentValues);
+        return true;
+    }
+    public boolean insertTrade(int order_id, int truck_user_id, int indv_user_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("order_id", order_id);
+        contentValues.put("truck_user_id", truck_user_id);
+        contentValues.put("indv_user_id", indv_user_id);
+        db.insert("trade_orders", null, contentValues);
         return true;
     }
 
@@ -118,7 +139,7 @@ public class Database extends SQLiteOpenHelper {
     }
     public int checkLogin(int status){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res =  db.rawQuery("select * from user where sign = "+1+" and status = "+status, null);
+        Cursor res =  db.rawQuery("select * from user where sign = ? and status = ?", new String[]{Integer.toString(1),Integer.toString(status)});
         res.moveToFirst();
         int id = -1;
         while(res.isAfterLast() == false){
@@ -136,6 +157,36 @@ public class Database extends SQLiteOpenHelper {
         while (res.isAfterLast() == false){
             int id = res.getInt(res.getColumnIndex("id"));
             user_id = res.getInt(res.getColumnIndex("user_id"));
+            int status = res.getInt(res.getColumnIndex("status"));
+            String location = res.getString(res.getColumnIndex("location"));
+            String destination = res.getString(res.getColumnIndex("destination"));
+            String description = res.getString(res.getColumnIndex("description"));
+            String height = res.getString(res.getColumnIndex("height"));
+            String width = res.getString(res.getColumnIndex("width"));
+            String length = res.getString(res.getColumnIndex("length"));
+            String weight = res.getString(res.getColumnIndex("weight"));
+            double budget = res.getDouble(res.getColumnIndex("budget"));
+            String pickup_date = res.getString(res.getColumnIndex("pickup_date"));
+            String dropoff_date = res.getString(res.getColumnIndex("dropoff_date"));
+            String loc_latitude = res.getString(res.getColumnIndex("loc_latitude"));
+            String loc_longitude = res.getString(res.getColumnIndex("loc_longitude"));
+            String dest_latitude = res.getString(res.getColumnIndex("dest_latitude"));
+            String dest_longitude = res.getString(res.getColumnIndex("dest_longitude"));
+            orders.add(new Order(id, user_id, status, location, destination, description, height, width,
+                    length, weight, budget, pickup_date, dropoff_date, loc_latitude, loc_longitude,
+                    dest_latitude, dest_longitude));
+            res.moveToNext();
+        }
+        return orders;
+    }
+    public List<Order> getAllOrders(){
+        List<Order> orders = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from orders", null);
+        res.moveToFirst();
+        while (res.isAfterLast() == false){
+            int id = res.getInt(res.getColumnIndex("id"));
+            int user_id = res.getInt(res.getColumnIndex("user_id"));
             int status = res.getInt(res.getColumnIndex("status"));
             String location = res.getString(res.getColumnIndex("location"));
             String destination = res.getString(res.getColumnIndex("destination"));
