@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.LinkedList;
@@ -17,17 +20,33 @@ public class ContactInfoActivity extends AppCompatActivity {
     CustomListAdapter adapter;
     LinkedList<String> contactList;
     Database db;
+    Button exit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_info);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         Log.d("Contact", "Info");
         db = new Database(getApplicationContext());
         Intent intent = getIntent();
         int status = intent.getIntExtra("status", -1);
-        int user_id = intent.getIntExtra("user_id", -1);
+        final int user_id = intent.getIntExtra("user_id", -1);
         main(user_id, status);
         loadContactList(user_id, status);
+        exit = findViewById(R.id.exit);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db = new Database(getApplicationContext());
+                boolean res = db.exitUser(user_id);
+                if (res){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private void loadContactList(int user_id, int status) {
@@ -79,6 +98,13 @@ public class ContactInfoActivity extends AppCompatActivity {
                                     intent2.putExtra("user_id", user_id);
                                     intent2.putExtra("status", status);
                                     startActivity(intent2);
+                                }
+                                else {
+                                    Intent intent2 = new Intent(getApplicationContext(), TruckOrdersAdapter.class);
+                                    intent2.putExtra("user_id", user_id);
+                                    intent2.putExtra("status", status);
+                                    startActivity(intent2);
+
                                 }
                                 break;
                         }

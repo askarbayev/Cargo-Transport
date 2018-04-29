@@ -1,6 +1,7 @@
 package com.example.askarbayev1.cargotrans;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         db = new Database(getApplicationContext());
         individual = (Button) findViewById(R.id.individual);
         truck_owner = (Button) findViewById(R.id.truck_owner);

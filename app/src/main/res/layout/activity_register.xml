@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".RegisterActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_fname"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:theme="@style/TextLabel"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/firstname"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="First Name"
@@ -32,22 +30,16 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_lname"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="43dp"
+        android:layout_height="50dp"
         android:theme="@style/TextLabel"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/lastname"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Last Name"
@@ -58,22 +50,16 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="85dp"
+        android:layout_height="50dp"
         android:theme="@style/TextLabel"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="E-mail"
@@ -84,22 +70,16 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_phone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="126dp"
+        android:layout_height="50dp"
         android:theme="@style/TextLabel"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/phone"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Phone"
@@ -110,22 +90,16 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="167dp"
+        android:layout_height="50dp"
         android:theme="@style/TextLabel"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Create Username"
@@ -136,66 +110,54 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_password1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="208dp"
+        android:layout_height="50dp"
         android:theme="@style/TextLabel"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/password1"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_password2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="189dp"
+        android:layout_height="50dp"
         android:theme="@style/TextLabel"
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/password2"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/backwithborder"
             android:ems="10"
             android:hint="Repeat Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/register"
-        android:layout_width="215dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="122dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:background="@color/colorAccent"
         android:text="Register"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 
 
-</android.widget.RelativeLayout>
+</LinearLayout>

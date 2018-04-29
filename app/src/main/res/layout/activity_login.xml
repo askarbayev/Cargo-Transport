@@ -50,7 +50,7 @@
             android:background="@drawable/backwithborder"
             android:ems="8"
             android:hint="Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
 

@@ -137,6 +137,13 @@ public class Database extends SQLiteOpenHelper {
         db.update("user", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
     }
+    public boolean exitUser(int user_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("sign", 0);
+        db.update("user", contentValues, "id = ? ", new String[] { Integer.toString(user_id) } );
+        return true;
+    }
     public int checkLogin(int status){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res =  db.rawQuery("select * from user where sign = ? and status = ?", new String[]{Integer.toString(1),Integer.toString(status)});
@@ -208,6 +215,39 @@ public class Database extends SQLiteOpenHelper {
             res.moveToNext();
         }
         return orders;
+    }
+    public List<Order> getTruckOwnerChart(int truck_owner_id){
+        List<Order> chartList = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select orders.* from orders INNER JOIN trade_orders ON orders.id = trade_orders.order_id " +
+                "and trade_orders.truck_user_id = ?", new String[]{Integer.toString(truck_owner_id)});
+        res.moveToFirst();
+        while (res.isAfterLast() == false){
+            int id = res.getInt(res.getColumnIndex("id"));
+            int user_id = res.getInt(res.getColumnIndex("user_id"));
+            int status = res.getInt(res.getColumnIndex("status"));
+            String location = res.getString(res.getColumnIndex("location"));
+            String destination = res.getString(res.getColumnIndex("destination"));
+            String description = res.getString(res.getColumnIndex("description"));
+            String height = res.getString(res.getColumnIndex("height"));
+            String width = res.getString(res.getColumnIndex("width"));
+            String length = res.getString(res.getColumnIndex("length"));
+            String weight = res.getString(res.getColumnIndex("weight"));
+            double budget = res.getDouble(res.getColumnIndex("budget"));
+            String pickup_date = res.getString(res.getColumnIndex("pickup_date"));
+            String dropoff_date = res.getString(res.getColumnIndex("dropoff_date"));
+            String loc_latitude = res.getString(res.getColumnIndex("loc_latitude"));
+            String loc_longitude = res.getString(res.getColumnIndex("loc_longitude"));
+            String dest_latitude = res.getString(res.getColumnIndex("dest_latitude"));
+            String dest_longitude = res.getString(res.getColumnIndex("dest_longitude"));
+            chartList.add(new Order(id, user_id, status, location, destination, description, height, width,
+                    length, weight, budget, pickup_date, dropoff_date, loc_latitude, loc_longitude,
+                    dest_latitude, dest_longitude));
+
+            res.moveToNext();
+        }
+
+        return chartList;
     }
 
     public Map<String, String> getUserInfo(int user_id, int status){

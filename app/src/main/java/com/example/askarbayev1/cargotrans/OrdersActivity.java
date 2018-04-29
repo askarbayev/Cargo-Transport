@@ -37,7 +37,9 @@ public class OrdersActivity extends AppCompatActivity {
     }
 
     private void initialElements() {
+
         add = findViewById(R.id.fab);
+        add.setImageResource(R.drawable.add_circle2);
     }
 
     public void getView(final int user_id, final int status){

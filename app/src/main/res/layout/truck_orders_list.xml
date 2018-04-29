@@ -58,14 +58,14 @@
                         android:id="@+id/weight"/>
                 </LinearLayout>
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:background="#4FC3F7"
+                    android:background="#BDBDBD"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
                     android:id="@+id/person_photo"
-                    android:src="@drawable/contactinfo"
+                    android:src="@drawable/order_icon"
                     />
                 <LinearLayout
                     android:layout_width="wrap_content"
